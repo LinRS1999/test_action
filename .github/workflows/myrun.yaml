@@ -2,7 +2,7 @@ name: test
 
 on:
   schedule:
-    - cron: '10 * * * *'
+    - cron: '21 * * * *'
 
 jobs:
   build:
@@ -27,6 +27,6 @@ jobs:
         git commit -m "update time"
 
     - name: Push changes
-      uses: ad-m/github-push-action@main
+      uses: ad-m/github-push-action@master
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
