@@ -1,0 +1,28 @@
+name: test
+
+on:
+  schedule:
+    - cron: '*/5 * * * *'
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    steps:
+
+      - uses: actions/checkout@v2
+      - name: Set up Python 3.9
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.9
+
+      - name: run python
+        run: python demo/test.py
+
+      - name: update repo
+        run: |
+          git config --global user.email 623156869@qq.com
+          git config --global user.name LinRS1999
+          git add .
+          git commit -m "update time"
+          git push -u origin main
